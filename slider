@@ -1,0 +1,188 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!--<script src="js/jquery-3.2.0.min.js"></script>-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			div.gallery {
+				position: relative;
+				width: 100%;
+			}
+			div.gallery img {
+				opacity: 0;
+				position: absolute;
+				left: 21%;
+				top: 0;
+				//text-align: center;
+			}
+			div.gallery img#one {
+				opacity: 1;
+			}
+			div.ruh img#right {
+				position: absolute;
+				right: 15%;
+				top: calc(50% - 50px);
+				opacity: 0.5;
+			}
+			div.ruh img#left {
+				position: absolute;
+				left: 15%;
+				top: calc(50% - 50px);;
+				opacity: 0.5;
+			}
+			div.navigation {
+				position: absolute;
+				width: 100%;
+				bottom: 10px;
+				padding: 0;
+				margin: 0;
+				text-align: center
+			}
+			div.navigation>div {
+				position: relative;
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				background-color: black;
+				border-radius: 50%;
+				margin: 3px;
+				opacity: 0.3;
+			}
+			div.navigation>div:hover {
+				//opacity: 1;
+			}
+			#first {
+			opacity: 1;
+			}
+		</style>
+		<script>
+			k=0;
+			m=0;
+			$('document').ready(function(){
+				my_img=$("div.gallery img");
+				my_div=$("div.navigation>div");
+				x=setTimeout(my_anime,3000);
+				
+			});	
+			function my_anime(){
+					$(my_img[k]).animate({"opacity": "0"},2000);
+					$(my_img[k+1]).animate({"opacity": "1"},2000);
+					$(my_div[k]).animate({"opacity": "0.3"},1000);
+					$(my_div[k+1]).animate({"opacity": "1"},1000);
+					k++;
+					if(k==my_img.length) {
+						k=0;
+						$(my_img[k]).animate({"opacity": "1"},2000);
+						$(my_div[k]).animate({"opacity": "1"},1000);
+					}
+					x=setTimeout(my_anime,3000);
+			}
+			$(function(){
+				var my_b=$("div.ruh img");
+				$(my_b[0]).click(my_anime_right);
+				$(my_b[1]).click(my_anime_left);
+				$("div.navigation>div").click(my_navigation);
+			});
+			var k=0;
+			function my_anime_right(){
+				clearTimeout(x);
+				var my_img=$("div.gallery img");
+				$(my_img[k]).animate({"opacity": "0"},1000);
+				$(my_img[k+1]).animate({"opacity": "1"},1000);
+				$(my_div[k]).animate({"opacity": "0.3"},1000);
+				$(my_div[k+1]).animate({"opacity": "1"},1000);
+				k++;
+				if(k==my_img.length) {
+					k=0;
+					$(my_img[k]).animate({"opacity": "1"},1000);
+					$(my_div[k]).animate({"opacity": "1"},1000);
+				}
+			}
+			 k=my_img.length;
+			function my_anime_left(){
+				clearTimeout(x);
+				var my_img=$("div.gallery img");
+				$(my_img[k]).animate({"opacity": "0"},1000);
+				$(my_img[k-1]).animate({"opacity": "1"},1000);
+				$(my_div[k]).animate({"opacity": "0.3"},1000);
+				$(my_div[k-1]).animate({"opacity": "1"},1000);
+				k--;
+				if(k==-1) {
+					k=my_img.length-1;
+					$(my_img[k]).animate({"opacity": "1"},1000);
+					$(my_div[k]).animate({"opacity": "1"},1000);
+				}
+			}
+			function my_navigation() {
+					clearTimeout(x);
+					k = $("div.navigation>div").index(this);
+					/*$(my_img[k]).animate({"opacity": "1"},2000);
+					$(my_img[k-1]).animate({"opacity": "0"},2000);
+					$(my_div[k]).animate({"opacity": "0.3"},1000);
+					$(my_div[k-1]).animate({"opacity": "1"},1000);*/
+					
+					//alert(k);
+					switch(k) {
+						case 0: $(my_img[0]).animate({"opacity": "1"},2000);
+								//$(my_img[k]).animate({"opacity": "0"},2000);
+								$("#first").animate({"opacity": "1"},1000);
+								$("div.circle:not(#first)").animate({"opacity": "0.3"},1000);
+								break;
+						case 1: $(my_img[1]).animate({"opacity": "1"},2000);
+								//$(my_img[k]).animate({"opacity": "0"},2000);
+								$("#two").animate({"opacity": "1"},1000);
+								$("div.circle:not(#two)").animate({"opacity": "0.3"},1000);
+								break;	
+						case 2: $(my_img[2]).animate({"opacity": "1"},2000);
+								//$(my_img[k]).animate({"opacity": "0"},2000);
+								$("#three").animate({"opacity": "1"},1000);
+								$("div.circle:not(#three)").animate({"opacity": "0.3"},1000);
+								break;	
+						case 3: $(my_img[3]).animate({"opacity": "1"},2000);
+								//$(my_img[k]).animate({"opacity": "0"},2000);
+								$("#four").animate({"opacity": "1"},1000);
+								$("div.circle:not(#four)").animate({"opacity": "0.3"},1000);
+								break;
+						case 4: $(my_img[4]).animate({"opacity": "1"},2000);
+								//$(my_img[k]).animate({"opacity": "0"},2000);
+								$("five").animate({"opacity": "1"},1000);
+								$("div.circle:not(#five)").animate({"opacity": "0.3"},1000);
+								break;
+						case 5: $(my_img[5]).animate({"opacity": "1"},2000);
+								//$(my_img[k]).animate({"opacity": "0"},2000);
+								$("#six").animate({"opacity": "1"},1000);
+								$("div.circle:not(#six)").animate({"opacity": "0.3"},1000);
+								break;
+										
+					}
+				}
+		</script>
+		
+	</head>
+	<body>
+		<div class="gallery">
+			<img src="1.jpg" id="one">
+			<img src="2.jpg">
+			<img src="3.jpg">
+			<img src="4.jpg">
+			<img src="5.jpg" >
+			<img src="6.jpg">
+		</div>
+		<div class="ruh">
+			<img id="right" src="up-arrow-icon-right.png">
+			<img id="left" src="up-arrow-icon-left.png">
+		</div>
+		<div class="navigation">
+			<div class="circle" id="first"></div>
+			<div class="circle" id="two"></div>
+			<div class="circle" id="three"></div>
+			<div class="circle" id="four"></div>
+			<div class="circle" id="five"></div>
+			<div class="circle" id="six"></div>
+		</div>
+	</body>
+</html>*6 vfcsa2
