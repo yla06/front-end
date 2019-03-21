@@ -1,0 +1,619 @@
+
+
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=devise-width", initial-scale="1.0">
+		<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			}
+			h1 {
+				text-align: center;
+				font-size: 1.5em;
+				color: gray;
+				padding-top: 10px;
+			}
+			h1:hover {
+				color: black;
+			}
+			h1 span {
+				color: red;
+			}
+			h1 sup {
+				font-size: 0.6em;
+				text-decoration: underline;
+			}
+			.header {
+				border-bottom: 1px solid silver;
+				height: 50px;
+			}
+			.content {
+				width: 70%;
+				margin: auto;
+			}
+
+		.content div.box50 {
+				width: 48%;
+			}
+			.content div.box25 {
+				width: 23%;
+			}
+			.content div.box75 {
+				width: 73%;
+				float: right;
+			}
+			.content div.box100 {
+				width: 98%;
+			}
+			.content div>img {
+				width: 100%;
+			}
+			div[class^="box"] {
+				float: left;
+				margin: 30px 1%;
+				position: relative;
+			}
+			.conteiner {
+				position: absolute;
+				left: 30px;
+				bottom: 10px;
+			}
+			.content h2 {
+				color: white;
+				font-size: 1.2em;
+			}
+			.content h3 {
+				font-size: 0.8em;
+			}
+			div[class^="box"] p {
+				color: white;
+				font-weight: bold;
+				border: 2px solid white;
+				padding: 5px;
+				display: inline-block;
+				text-transform: uppercase;
+				font-size: 0.8em;
+			}
+			div[class^="box"] p:hover {
+				background: white;
+				color: black;
+			}
+			.content div.big {
+				clear: both;
+			}
+			.content div.right {
+				float: right;
+			}
+			.content .black {
+				width: 100%;
+				height: 100%;
+				background: black;
+				position: absolute;
+				left: 0;
+				top: 0;
+				opacity: 0;
+			}
+			div[class^="box"]:hover .black {
+				opacity: 0.5;
+			}
+			div[class^="box"]:hover h3 {
+				opacity: 1;
+				background: white;
+				color: black;
+			}
+			.content div.like {
+				width: 98%;
+				background: #F69;
+				margin: 1%;
+			}
+			div.content div.big div.like p {
+				color: white;
+				padding: 20px 20px;
+				font-size: 0.7em;
+				display: inline-block;
+				font-weight: bold
+			}
+			div.like p span {
+				font-weight: bold;
+				font-size: 1.2em;
+			}
+			div.like p span sup {
+				text-decoration: underline;
+				font-size: 0.7em;
+			}
+			div.like form {
+				display: inline-block;
+			}
+			div.like form a {
+				border: 1px solid white;
+				text-decoration: none;
+				color: white;
+				padding: 15px;
+				text-transform: uppercase;
+				font-size: 0.7em;
+			}
+			div.like form a:hover {
+				background: white;
+				color: black;
+			}
+			div.like form input {
+				border: 1px solid white;
+				padding: 15px;
+				background: #F69;
+				color: white;
+				font-size: 0.7em;
+			}
+			div.like form input:focus {
+				outline: 0;
+			}
+			div.menu {
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 15%;
+				z-index: 10;
+			}
+			div.menu ul {
+				list-style: none;
+				width: 100%;
+				padding: 0;
+				margin: 0;
+			}
+			div.menu li ul {
+				//display: none;
+				transform: translateX(-100%);
+				transition-duration: 1s;
+			}
+			div.menu ul li:hover ul {
+				//display: block;
+				transform: translateX(0);
+				border-right: 80% solid black;
+			}
+			div.menu img {
+				height: 50px;
+			}
+			div.menu li ul a {
+				text-decoration: none;
+				display: block;
+				border-bottom: 1px solid silver;
+				color: black;
+				font-weight: bold;
+				padding: 20px;
+				opacity: .8;
+				transition-duration: 0.5s;
+			}
+			div.circle {
+				display: inline-block;
+				width: 4px;
+				height: 4px;
+				background: black;
+				border-radius: 50%;
+				margin: 3px;
+				margin-right: 17px;
+				transition-duration: 0.5s;
+			}
+			div.menu li ul a:hover {
+				opacity: 1;
+			}
+			div.menu li ul a:hover div.circle {
+				transform: scale(2);
+			}
+			div.fon {
+				width: 98%;
+				margin: 1%;
+				position: relative;
+			}
+			div.dark {
+				position:absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				background: black;
+				opacity: 0.7;
+			}
+			div.conteiner1 {
+				position: absolute;
+				left: 30px;
+				top: 20px;
+			}
+			div.conteiner1 p {
+				display: inline-block;
+				color: white;
+				font-size: 0.8em;
+				font-weight: bold;
+				padding-right: 50px;
+			}
+			div.conteiner1 p span {
+				font-weight: bold;
+				
+			}
+			div.conteiner1 p span.red {
+				color: red;
+			}
+			div.conteiner1 p sup {
+				text-decoration: underline;
+				font-size: 0.6em;
+			}
+			div.conteiner1 a {
+				display: inline-block;
+				padding-right: 10px;
+				vertical-align: middle;
+			}
+			div.conteiner1 a img {
+				height: 30px;
+				background-size: 100%;
+				opacity: 0.8;
+			}
+			div.conteiner1 a:hover img {
+				opacity: 1;
+			}
+			div.end {
+				text-align: center;
+				width: 98%;
+				margin: 1%;
+			}
+			div.big div.end a {
+				border: 2px solid black;
+				color: black;
+				font-size: 0.9em;
+				text-decoration: none;
+				text-transform: uppercase;
+				padding: 15px 35px;
+				display: inline-block;
+				margin-top: 30px;
+				margin-bottom: 30px;
+				font-weight: bold;
+			}
+			div.big div.end a:hover {
+				background: black;
+				color: white;
+			}
+			div.footer {
+				clear: both;
+				width: 100%;
+				background: black;
+				text-align: center;
+				height: 300px;
+			}
+			.footer p.red1 {
+				color: white;
+				font-size: 0.8em;
+				padding: 20px;
+			}
+			.footer p.red1:hover {
+				color: red;
+			}
+			div.footer p {
+				color: white;
+				font-size: 1em;
+				font-weight: bold;
+				padding: 10px;
+			}
+			div.footer p span {
+				font-weight: bold;
+				
+			}
+			div.footer p span.red {
+				color: red;
+			}
+			div.footer p sup {
+				text-decoration: underline;
+				font-size: 0.7em;
+			}
+			div.footer a {
+				display: inline-block;
+				padding-right: 10px;
+				vertical-align: middle;
+			}
+			div.footer a img {
+				height: 25px;
+				background-size: 100%;
+				opacity: 0.8;
+			}
+			div.footer a:hover img {
+				opacity: 1;
+			}
+			div.footer form {
+				//display: inline-block;
+				margin: 20px;
+			}
+			div.footer form a {
+				border: 1px solid white;
+				text-decoration: none;
+				color: white;
+				padding: 15px;
+				text-transform: uppercase;
+				font-size: 0.7em;
+			}
+			div.footer form a:hover {
+				background: white;
+				color: black;
+			}
+			div.footer form input {
+				border: 1px solid white;
+				padding: 15px;
+				background: black;
+				color: white;
+				font-size: 0.7em;
+			}
+			div.footer form input:focus {
+				outline: 0;
+			}
+			@media screen and (max-width: 1350px) {
+				.content {
+				width: 90%;
+				}
+				div.header {
+					background: pink;
+				}
+			}
+			@media screen and (max-width: 1040px) {
+				.content {
+				width: 70%;
+				}
+				.content div.box50 {
+				width: 98%;
+				}
+				.content div.box25 {
+					width: 48%;
+				}
+				.content div.box75 {
+					width: 98%;
+				}
+				.content div.like {
+					text-align: center;
+				}
+			}
+			@media screen and (max-width: 760px) {
+				.content {
+				width: 90%;
+				}
+				
+				div.conteiner1 a img {
+				height: 20px;
+				}
+				div.conteiner1 {
+					top: 5px;
+					left: 15px;
+				}
+			}
+			@media screen and (max-width: 470px) {
+				.content {
+				width: 95%;
+				}
+				.content div.box25 {
+					width: 98%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<h1><span>BIRD</span> <sup>IN</sup> FLIGHT</h1>
+		</div>
+		<div class="menu">
+				<ul>
+					<li>
+						<a href="#"><img src="1.gif"></a>
+						<ul>
+							<li><a href="#"><div class="circle"></div>Інфографіка</a></li>
+							<li><a href="#"><div class="circle"></div>Натхнення</a></li>
+							<li><a href="#"><div class="circle"></div>Репортаж</a></li>
+							<li><a href="#"><div class="circle"></div>Новини</a></li>
+							<li><a href="#"><div class="circle"></div>Медіа</a></li>
+							<li><a href="#"><div class="circle"></div>Світ</a></li>
+							<li><a href="#"><div class="circle"></div>Гра</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		<div class="content">
+			<div class="big">
+				<div class="box50">
+					<img src="1_.jpg">
+					<div class="black"></div>
+					<div class="conteiner">
+						<p>Репортаж</p>
+						<h2>«Революция любви»:
+						Как Америка встретила нового президента</h2>
+					</div>
+				</div>
+				<div class="box25">
+					<img src="2_.jpg">
+					<div class="black"></div>
+					<h3>Разрешение на второго ребенка привело к буму рождаемости в Китае</h3>
+				</div>
+				<div class="box25">
+					<img src="3_.jpg">
+					<div class="black"></div>
+					<h3>Новейший погодный спутник прислал первые фотографии Земли</h3>
+				</div>
+				<div class="box50">
+					<img src="4_.jpg">
+					<div class="black"></div>
+					<div class="conteiner">
+						<p>ФОТОПРОЕКТ</p>
+						<h2>По Собачьей тропе:
+						Каким был путь киевских паломников сто лет назад</h2>
+					</div>
+				</div>
+			</div>
+			<div class="big">
+				<div class="box75 right">
+					<img src="12_.jpg">
+					<div class="black"></div>
+					<div class="conteiner">
+						<p>Фото дня</p>
+					</div>
+				</div>
+				<div class="box25">
+					<img src="10_.jpg">
+					<div class="black"></div>
+					<h3>Новейший погодный спутник прислал первые фотографии Земли</h3>
+				</div>	
+				<div class="box25">
+					<img src="11_.jpg">
+					<div class="black"></div>
+					<h3>Новейший погодный спутник прислал первые фотографии Земли</h3>
+				</div>
+			</div>
+			<div class="big">
+				<div class="like">
+					<p><span>BIRD  <sup>IN</sup> FLIGHT</span></p> <p>ПОДПИШИСЬ НА ЕЖЕНЕДЕЛЬНУЮ ПТИЧКУ</p>
+					<form>
+						<input type="text" placeholder="EMAIL">
+						<a href="#">Подписаться</a>
+					</form>
+				</div>
+			</div>
+			<div class="big">
+				<div class="box50">
+					<img src="4_.jpg">
+					<div class="black"></div>
+					<div class="conteiner">
+						<p>Репортаж</p>
+						<h2>Он (не) разделит нас:
+						Чем примечателен антитрамповский протест Шайи Лабафа</h2>
+					</div>
+				</div>
+				<div class="box50">
+					<img src="4_.jpg">
+					<div class="black"></div>
+					<div class="conteiner">
+						<p>фотопроект</p>
+						<h2>Украина в тени:
+							Мобильная серия Павла Гурьева</h2>
+					</div>
+				</div>
+			</div>
+			<div class="big">
+				<div class="box50 right">
+					<img src="19_.jpg">
+					<div class="black"></div>
+					<div class="conteiner">
+						<p>Репортаж</p>
+						<h2>И живые позавидуют мертвым:
+						Что такое Часы Судного дня и почему их перевели из-за Трампа</h2>
+					</div>
+				</div>
+				<div class="box25">
+					<img src="17_.jpg">
+					<div class="black"></div>
+					<h3>Новейший погодный спутник прислал первые фотографии Земли</h3>
+				</div>
+				<div class="box25">
+					<img src="3_.jpg">
+					<div class="black"></div>
+					<h3>Новейший погодный спутник прислал первые фотографии Земли</h3>
+				</div>
+				<div class="box25">
+					<img src="17_.jpg">
+					<div class="black"></div>
+					<h3>Новейший погодный спутник прислал первые фотографии Земли</h3>
+				</div>
+				<div class="box25">
+					<img src="3_.jpg">
+					<div class="black"></div>
+					<h3>Новейший погодный спутник прислал первые фотографии Земли</h3>
+				</div>
+			</div>
+			<div class="big">
+				<div class="box100">
+					<img src="8_.png">
+					<div class="black"></div>
+					<div class="conteiner">
+						<p>фотопроект</p>
+						<h2>Украина в тени:
+							Мобильная серия Павла Гурьева</h2>
+					</div>
+				</div>
+			</div>
+			<div class="big">
+				<div class="fon">
+					<img src="13_.jpg">
+					<div class="dark"></div>
+					<div class="conteiner1">
+						<p><span><span class="red">BIRD</span>  <sup>IN</sup> FLIGHT</span></p> <p>ПОДПИСЫВАЙТЕСЬ НА НАС В СОЦСЕТЯХ</p>
+						<a href="#"><img src="vk.png"></a>
+						<a href="#"><img src="fc.png"></a>
+						<a href="#"><img src="tw.png"></a>
+					</div>
+				</div>
+			</div>
+			<div class="big">
+				<div class="box50 right">
+					<img src="19_.jpg">
+					<div class="black"></div>
+					<div class="conteiner">
+						<p>фотопроект</p>
+						<h2>Украина в тени:
+							Мобильная серия Павла Гурьева</h2>
+					</div>
+				</div>
+				<div class="box25">
+					<img src="17_.jpg">
+					<div class="black"></div>
+					<h3>Новейший погодный спутник прислал первые фотографии Земли</h3>
+				</div>
+				<div class="box25">
+					<img src="3_.jpg">
+					<div class="black"></div>
+					<h3>Новейший погодный спутник прислал первые фотографии Земли</h3>
+				</div>
+				<div class="box25">
+					<img src="17_.jpg">
+					<div class="black"></div>
+					<h3>Новейший погодный спутник прислал первые фотографии Земли</h3>
+				</div>
+				<div class="box25">
+					<img src="3_.jpg">
+					<div class="black"></div>
+					<h3>Новейший погодный спутник прислал первые фотографии Земли</h3>
+				</div>
+			</div>
+			<div class="big">
+				<div class="box50">
+					<img src="4_.jpg">
+					<div class="black"></div>
+					<div class="conteiner">
+						<p>фотопроект</p>
+						<h2>Украина в тени:
+							Мобильная серия Павла Гурьева</h2>
+					</div>
+				</div>
+				<div class="box25">
+					<img src="2_.jpg">
+					<div class="black"></div>
+					<h3>Новейший погодный спутник прислал первые фотографии Земли</h3>
+				</div>
+				<div class="box25">
+					<img src="3_.jpg">
+					<div class="black"></div>
+					<h3>Новейший погодный спутник прислал первые фотографии Земли</h3>
+				</div>
+			</div>
+			<div class="big">
+				<div class="end">
+					<a href="#">Больше материалов</a>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<p class="red1">о птичке</p>
+			<p><span><span class="red">BIRD</span>  <sup>IN</sup> FLIGHT</span></p>
+			<a href="#"><img src="vk.png"></a>
+			<a href="#"><img src="fc.png"></a>
+			<a href="#"><img src="tw.png"></a>
+			<form>
+				<input type="email" placeholder="EMAIL">
+				<a href="#">Подписаться</a>
+			</form>
+			<p>Розробка...</p>
+		</div>
+	</body>
+</html>		
