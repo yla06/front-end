@@ -1,0 +1,420 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+	    <style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Karla', sans-serif;
+			background: url(fon.png) no-repeat;
+			background-attachment: fixed;
+		}
+			div.menu {
+				background: black;
+				border-top: 5px solid gold;
+				position: fixed;
+				width: 100%;
+				top: 0;
+				left: 0;
+				z-index: 10;
+			}
+			div.animation {
+				display: inline-block;
+				transition-duration: 1s;
+				animation-name: test;
+				animation-duration: 1s;
+				animation-iteration-count: 1;
+			}
+		@keyframes test {
+			from, to {
+				background: black;
+			}
+			25% {
+				background: black;
+				transform: translateX(-73%);
+			}
+			
+			50% {
+				transform: translateX(11%);
+			}
+			75% {
+				transform: translateX(-7.3%);
+				}
+			}
+			div.menu a, div.menu span {
+				color: white;
+				text-decoration: none;
+				font-weight: bold;	
+				margin: 30px 50px;
+				display: inline-block;
+				text-transform: uppercase;
+			}
+			div.menu a:after {
+				content: " ";
+				display: block;
+				height: 2px;
+				background: gold;
+				transform: scale(0,1);
+				transition-duration: 1s;
+				transform-origin: left top;
+			}
+			div.menu a:hover:after {
+				transform: scale(1,1);
+			}
+			div.menu span {
+				float: right;
+				transform: translateX(0);
+				opacity: 1;
+				transition-duration: 1s;
+			}
+			div.menu:hover span {
+				transform: translateX(100px);
+				opacity: 0;
+			}
+			div.header h1 {
+				margin: 25%  auto;
+				text-align: center;
+				font-size: 4em;
+				color: white;
+				text-shadow: 1px 1px 2px black;
+			}
+			div#about, div#experience, div#what, div#contacts, div#cv {
+				background: white;
+				padding: 100px 10%;
+				text-align: center;
+				overflow: hidden;
+			}	
+			h2 {
+				text-align: center;
+				text-transform: uppercase;
+				font-size: 3em;
+				display: inline-block;
+			}
+			h2:after {
+				content: " ";
+				display: block;
+				height: 5px;
+				background: gold;
+				
+			}
+			div#about img {
+				width: 20%;
+				margin-right: 2.6%;
+				float: left;
+			}
+			div#about p {
+				text-align: left;
+				text-transform: uppercase;
+				color: gray;
+				font-size: 0.9em;
+			}
+			div#experience div.box {
+				width: 46%;
+				margin-bottom: 100px;
+				position: relative;
+			}
+			div#experience div.left {
+				float: left;
+			}
+			div#experience div.right {
+				float: right;
+			}
+			div#experience div.box img {
+				width: 100%;
+			}
+			.line_left, .line_right, .line_top, .line_bottom {
+				position: absolute;
+				background: gold;
+				transition-duration: 1s;
+			}
+			div.dark {
+				position: absolute;
+				left: 15px;
+				right: 15px;
+				top: 15px;
+				bottom: 15px;
+				background: black;
+				opacity: 0;
+				transition-duration: 1s;
+			}
+			div#experience h3 {
+				position: absolute;
+				top: 40%;
+				left: 45%;
+				color: white;
+				font-size: 2em;
+				opacity: 0;
+				transition-duration: 1s;
+			}
+			div#experience div.box:hover h3{
+				opacity: 1;
+			}
+			div#experience div.box:hover .dark {
+				opacity: 0.5;
+			}
+			.line_left, .line_right {
+				width: 15px;
+				height: 100%;
+				transform: scaleY(0);
+			}
+			.line_top, .line_bottom {
+				width: 100%;
+				height: 15px;
+				transform: scaleX(0);
+			}
+			.line_left, .line_top {
+				top: 0;
+				left: 0;
+			}
+			.line_right, .line_bottom {
+				right: 0;
+				bottom: 0;
+			}
+			div.box:hover .line_left, div.box:hover .line_right, div.box:hover .line_top, div.box:hover .line_bottom {
+				transform: scale(1);
+			}
+			div.box1 {
+				float: left;
+				width: 33%;
+				margin-bottom: 50px;
+			}
+			div.circle {
+				width: 100px;
+				height: 100px;
+				background: url(logo1.gif);
+				border-radius: 50%;
+				border: 3px solid gold;
+				margin: auto;
+				transition-duration: 1s;
+			}
+			div.circle:hover {
+				background-position: -100px 0;
+			}
+			iframe {
+				margin-bottom: 100px;
+			}
+			div#contacts div.circle {
+				transform: scale(0);
+				transform-origin: center top;
+			}
+			div#contacts div.empty:hover div.circle {
+				transform: scale(1);
+			}
+			div#contacts h3 {
+				opacity: 0;
+				transform: translateY(100px);
+				transition-duration: 1s;
+			}
+			div#contacts div.empty:hover h3 {
+				transform: translateY(0);
+				opacity: 1;
+			}
+			div#cv {
+				padding-left: 21%;
+				padding-right: 21%;
+			}
+			div#cv div.left_f {
+				float: left;
+			}
+			div#cv div.right_f {
+				float: right;
+			}
+			div#cv form {
+				text-align: left;
+			}
+			div#cv div {
+				width: 40%;
+			}
+			div#cv form input, div#cv form textarea {
+				border: 0;
+				border-bottom: 2px solid black;
+				width: 100%;
+				display: block;
+				color: gray;
+				font-weight: bold;
+				margin-bottom: 50px;
+				padding-bottom: 10px;
+			}
+			div#cv form textarea {
+				height: 100px;
+			}
+			div#cv form input:focus, div#cv form textarea:focus {
+				outline: 0;
+			}
+			div#cv p {
+				font-weight: bold;
+				text-transform: uppercase;
+			}
+			div#cv div.send {
+				width: 200px;
+				height: 70px;
+				border: 2px solid gold;
+				position: relative;
+				overflow: hidden;
+			}
+			div#cv div.send div.black {
+				width: 200px;
+				height: 70px;
+				background: black;
+				position: absolute;
+				left: 0;
+				top: 0;
+				transform: skew(45deg) scaleX(0);
+				transition-duration: 1s;
+			}
+			div#cv div.send:hover div.black {
+				transform: skew(45deg) scaleX(1.2);
+			}
+			div#cv div.send p {
+				color: gold;
+				font-weight: gold;
+				position: absolute;
+				left: 75px;
+				top: 10px;
+			}
+			
+			}
+		</style>
+	</head>
+	<body>
+		<div class="menu">
+			<div class="animation">
+				<a href="#about">about</a>
+				<a href="#experience">experience</a>
+				<a href="#what">what can i do</a>
+				<a href="#contacts">contacts</a>
+				<a href="#cv">cv</a>
+			</div>	
+			<span>ALESSIO SANTANGELO</span>
+		</div>
+		<div class="header">
+			<h1>ALESSIO SANTANGELO</h1>
+		</div>
+		<div id="about">
+			<h2>about</h2><br>
+			<img src="1.png">
+			<img src="2.png">
+			<p>Hi.
+				My name is Alessio Santangelo and I'm a talented web developer.
+				Just ask my mom.
+				<br><br>
+				I work everyday to create stunning, minimal websites. I love geometric forms which inspire a sense of balance and a content-oriented design to serve informations quickly and easily.
+				<br><br>
+				To work hard and profitably I absolutely need some caffeine injection and a good pair of headphones.
+				<br><br>
+				I'm a lover of reading books, a travel-passionate and as a true italian I'm not a bad cook.
+				<br><br>
+				Actually I'm living in Milan, working as front-end developer for Zodiak Advertising.
+			</p>
+		</div>
+		<div id="experience">
+		<h2>experience</h2><br>
+			<div class="box left">
+				<img src="3.png">
+				<div class="line_left"></div>
+				<div class="line_right"></div>
+				<div class="line_top"></div>
+				<div class="line_bottom"></div>
+				<div class="dark"></div>
+				<h3>TITLE</h3>
+			</div>
+			<div class="box right">
+				<img src="4.jpg">
+				<div class="line_left"></div>
+				<div class="line_right"></div>
+				<div class="line_top"></div>
+				<div class="line_bottom"></div>
+				<div class="dark"></div>
+				<h3>TITLE</h3>
+			</div>
+			<div class="box right">
+				<img src="5.jpg">
+				<div class="line_left"></div>
+				<div class="line_right"></div>
+				<div class="line_top"></div>
+				<div class="line_bottom"></div>
+				<div class="dark"></div>
+				<h3>TITLE</h3>
+			</div>
+			<div class="box left">
+				<img src="6.png">
+				<div class="line_left"></div>
+				<div class="line_right"></div>
+				<div class="line_top"></div>
+				<div class="line_bottom"></div>
+				<div class="dark"></div>
+				<h3>TITLE</h3>
+			</div>
+		</div>
+		<div id="what">
+			<h2>what can i do</h2>
+			<br>
+			<div class="box1">
+				<div class="circle"></div>
+				<h3>Fast & performance-driven</h3>
+			</div>
+			<div class="box1">
+				<div class="circle"></div>
+				<h3>Handcrafted or Wordpress powered</h3>
+			</div>
+			<div class="box1">
+				<div class="circle"></div>
+				<h3>Responsive & bulletproof</h3>
+			</div>
+			<div class="box1">
+				<div class="circle"></div>
+				<h3>Elegant & minimal</h3>
+			</div>
+			<div class="box1">
+				<div class="circle"></div>
+				<h3>Easy to use</h3>
+			</div>
+			<div class="box1">
+				<div class="circle"></div>
+				<h3>Made with love</h3>
+			</div>
+		</div>
+		<div id="contacts">
+			<h2>Contacts</h2>
+			<br>
+			<div class="empty">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2523.3843749846706!2d25.357865516118107!3d50.76844787952051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4725974eceab22fd%3A0x3e2246ba666a60e1!2z0LLRg9C70LjRhtGPINCk0LXQtNC-0YDQvtCy0LAsINCb0YPRhtGM0LosINCS0L7Qu9C40L3RgdGM0LrQsCDQvtCx0LvQsNGB0YLRjA!5e0!3m2!1suk!2sua!4v1484758333833" width="65%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+				<br>
+				<div class="box1">
+					<div class="circle"></div>
+					<h3>alessio.santangelo.web@gmail.com</h3>
+				</div>
+				<div class="box1">
+					<div class="circle"></div>
+					<h3>Linkedin</h3>
+				</div>
+				<div class="box1">
+					<div class="circle"></div>
+					<h3>+39 340 7139599</h3>
+				</div>
+			</div>
+		</div>
+		<div id="cv">
+			<h2>SEND ME A MESSAGE:</h2>
+			<br>
+			<form>
+				<div class="left_f">
+					<p>Name:</p>
+					<input type="text" placeholder="JOHN">
+					<p>Message:</p>
+					<textarea placeholder="I NEED..."></textarea>
+					<div class="send">
+						<div class="black"></div>
+						<p>SEND</p>
+					</div>
+				</div>
+				<div class="right_f">
+					<p>E-mail:</p>
+					<input type="email" placeholder="JOHN@mail.com">
+				</div>
+			</form>
+		</div>
+	</body>
+</html>	
