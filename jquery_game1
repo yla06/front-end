@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!--<script src="js/jquery-3.2.0.min.js"></script>-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<style>
+			div {
+				background: silver;
+				width: 100px;
+				height: 100px;
+				position: absolute;
+			}
+			button{
+				margin: 5px;
+			}
+		</style>
+		<script>
+			$(function(){
+			var my_b=$("button");
+				$(my_b[2]).click(function(event){
+					var a=$("div").position();
+					var x=a.left;
+					$("div").css("left",(x+20)+"px");
+				});
+				$(my_b[0]).click(function(event){
+					var a=$("div").position();
+					var x=a.left;
+					$("div").css("left",(x-20)+"px");
+				});
+				$(my_b[3]).click(function(event){
+					var a=$("div").position();
+					var y=a.top;
+					$("div").css("top",(y+20)+"px");
+				});
+				$(my_b[1]).click(function(event){
+					var a=$("div").position();
+					var y=a.top;
+					$("div").css("top",(y-20)+"px");
+				});
+			});	
+		</script>
+	</head>
+	<body>
+		<div>
+		</div>
+		<br><br><br><br><br><br><br><br><br>		
+		<button><--</button>
+		<button>ВГОРУ</button>
+		<button>--></button>
+		<button>ВНИЗ</button>
+	</body>
+</html>
