@@ -1,0 +1,175 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style type="text/css">
+			div.menu ul {
+				list-style: none;
+				width: 250px;
+			}
+			div.menu li {
+				//background: red;
+			}
+			div.menu a {
+				display: block;
+				text-decoration: none;
+				padding: 5px 10px;
+				font-family: sans-serif;
+				background: #900;
+				color: white;
+				border: 1px solid gray;
+				border-radius: 3px;
+			}
+			div.menu li:hover>a {
+				background: #600;
+			}
+			div.menu li ul {
+				 display: none;
+				 position: absolute;
+				 margin-left: 150px;
+				 margin-top: -15px;
+				 padding: 0;
+			}
+			div.menu li:hover ul {
+				display: block;
+			}
+			/*------------------------*/
+			div.main_menu ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				//width: 250px;
+				
+			}
+			div.main_menu li {
+				//background: red;
+				float: left;
+				//display: inline-block;
+			}
+			div.main_menu a {
+				display: block;
+				text-decoration: none;
+				padding: 10px;
+				font-family: sans-serif;
+				background: #900;
+				color: white;
+				//border: 1px solid gray;
+				//border-radius: 3px;
+				width: 200px;
+				//text-align: center;
+				padding-left: 30px;
+			}
+			div.main_menu li:hover>a {
+				background: #600;
+			}
+			div.main_menu li ul {
+				 display: none;
+				 position: absolute;
+				 //margin-left: 150px;
+				 //margin-top: -15px;
+				 padding: 0;
+				 width: 200px;
+			}
+			div.main_menu li:hover ul {
+				display: block;
+			}
+			div.menu {
+				margin-top: 200px;
+			}
+			div.main_menu {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				background: #900;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="main_menu">
+			<ul>
+				<li><a href="#">Закуски</a>
+					<ul>
+						<li><a href="#">Салат Олів'є</a></li>
+						<li><a href="#">Салат Оселедець під шубою</a></li>
+						<li><a href="#">Салат Мімоза</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Перші страви</a>
+					<ul>
+						<li><a href="#">Суп Харчо</a></li>
+						<li><a href="#">Червоний борщ</a></li>
+						<li><a href="#">Уха</a></li>
+						<li><a href="#">Капустняк</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Другі страви</a>
+					<ul>
+						<li><a href="#">Картопля фрі</a></li>
+						<li><a href="#">Відбивна з сиром</a></li>
+						<li><a href="#">Стейк</a></li>
+						<li><a href="#">Вареники</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Десерти</a>
+					<ul>
+						<li><a href="#">Тірамісу</a></li>
+						<li><a href="#">Чізкейк</a></li>
+						<li><a href="#">Млинці з маком та медом</a></li>
+						<li><a href="#">Морозиво</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Напої</a>
+					<ul>
+						<li><a href="#">Чай</a></li>
+						<li><a href="#">Сік</a></li>
+						<li><a href="#">Кава</a></li>
+					</ul>
+				</li
+			</ul>
+		</div>
+		<div class="menu">
+			<ul>
+				<li><a href="#">Закуски</a>
+					<ul>
+						<li><a href="#">Салат Олів'є</a></li>
+						<li><a href="#">Салат Оселедець під шубою</a></li>
+						<li><a href="#">Салат Мімоза</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Перші страви</a>
+					<ul>
+						<li><a href="#">Суп Харчо</a></li>
+						<li><a href="#">Червоний борщ</a></li>
+						<li><a href="#">Уха</a></li>
+						<li><a href="#">Капустняк</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Другі страви</a>
+					<ul>
+						<li><a href="#">Картопля фрі</a></li>
+						<li><a href="#">Відбивна з сиром</a></li>
+						<li><a href="#">Стейк</a></li>
+						<li><a href="#">Вареники</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Десерти</a>
+					<ul>
+						<li><a href="#">Тірамісу</a></li>
+						<li><a href="#">Чізкейк</a></li>
+						<li><a href="#">Млинці з маком та медом</a></li>
+						<li><a href="#">Морозиво</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Напої</a>
+					<ul>
+						<li><a href="#">Чай</a></li>
+						<li><a href="#">Сік</a></li>
+						<li><a href="#">Кава</a></li>
+					</ul>
+				</li
+			</ul>
+		</div>
+	
+	</body>
+</html>	
