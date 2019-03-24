@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>	
+<html>
+	<head>
+		<title>Галерея</title>
+		<meta charset="utf-8">
+		<style type="text/css">
+		h1 {
+			text-align: center;
+		}
+		div {
+				width: 200px;
+				height: 150px;
+				float: left;
+				margin: 30px; 
+				transform-origin: center top;
+				transition-duration: 1s;
+		}
+		div.one {
+			background: url(1.jpg) no-repeat;
+			}
+		div.two {
+			background: url(2.jpg) no-repeat;
+		}
+		div.three {
+			background: url(3.jpg) no-repeat;
+		}
+		div.four {
+			background: url(4.jpg) no-repeat;
+		}
+		div.five {
+			background: url(5.jpg) no-repeat;
+		}
+		div.six {
+			background: url(6.jpg) no-repeat;
+		}
+		
+		div:hover {
+			transform: scale(1.8);
+			transition-duration: 1s;
+			
+			}
+		
+		</style>
+	</head>
+	<body>
+		<h1>Галерея</h1>
+			<div class="one"></div>
+			<div class="two"></div>
+			<div class="three"></div>
+			<div class="four"></div>
+			<div class="five"></div>
+			<div class="six"></div>
+	</body>
+</html>	
