@@ -1,0 +1,879 @@
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Cafe Frida</title>
+		<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:200,400,800|Roboto" rel="stylesheet">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script>
+			$(function(){
+				$("div.waves").animate({
+						opacity: 1,
+						top: "-10px"
+				},500);
+				$("div.waves").animate({
+						opacity: 0,
+						top: "-20px"
+				},500);
+				$("div.waves").animate({
+						top: 0
+				},100);
+				$("div.waves").animate({
+						opacity: 1,
+						top: "-10px"
+				},500);
+				$("div.waves").animate({
+						opacity: 0,
+						top: "-20px"
+				},500);
+			});
+			$(window).load(function(){
+				function show_logo(){
+				//_______показ лого і квітів
+					$("div.logo_start").fadeOut(1000);
+					$("img.logo").fadeIn(1000);
+					$("div.top-left").animate({
+						left: (-1)*(1000-0.5*screen.width)+"px",
+						top: (-1)*(600-0.5*screen.height)+"px"
+					},1000);
+					$("div.top-right").animate({
+						right: (-1)*(1000-0.5*screen.width)+"px",
+						top: (-1)*(600-0.5*screen.height)+"px"
+					},1000);
+					$("div.bottom-left").animate({
+						left: (-1)*(1000-0.5*screen.width)+"px",
+						bottom: (-1)*(600-0.5*screen.height)+"px"
+					},1000);
+					$("div.bottom-right").animate({
+						right: (-1)*(1000-0.5*screen.width)+"px",
+						bottom: (-1)*(600-0.5*screen.height)+"px"
+					},1000);
+				}
+				setTimeout(show_logo,2000);
+				//___________анімація квітів
+				$(window).scroll(function(e){
+						flowers();
+				});
+				function flowers(){
+					var w_s=$(window).scrollTop();
+					if (w_s>100) {
+						//console.log(w_s);
+						$("div.top-left").animate({
+						left: "-420px",
+						top: "-270px"
+					},1000);
+					$("div.top-right").animate({
+						right: "-400px",
+						top: "-310px"
+					},1000);
+					$("div.bottom-left").animate({
+						left: "-410px",
+						bottom: "-330px"
+					},1000);
+					$("div.bottom-right").animate({
+						right: "-500px",
+						bottom: "-260px"
+					},1000);
+					}
+					/*else if (w_s>200){
+						$("div.top-left").css({
+						"left": "-420px",
+						"top": "-270px"
+					});
+					$("div.top-right").css({
+						"right": "-400px",
+						"top": "-310px"
+					});
+					$("div.bottom-left").css({
+						"left": "-410px",
+						"bottom": "-330px"
+					});
+					$("div.bottom-right").css({
+						"right": "-500px",
+						"bottom": "-260px"
+					});
+					}*/
+					else {
+						$("div.top-left").animate({
+						left: (-1)*(1000-0.5*screen.width)+"px",
+						top: (-1)*(600-0.5*screen.height)+"px"
+						},500);
+						$("div.top-right").animate({
+							right: (-1)*(1000-0.5*screen.width)+"px",
+							top: (-1)*(600-0.5*screen.height)+"px"
+						},500);
+						$("div.bottom-left").animate({
+							left: (-1)*(1000-0.5*screen.width)+"px",
+							bottom: (-1)*(600-0.5*screen.height)+"px"
+						},500);
+						$("div.bottom-right").animate({
+							right: (-1)*(1000-0.5*screen.width)+"px",
+							bottom: (-1)*(600-0.5*screen.height)+"px"
+						},500);
+					}
+					/*else {
+						$("div.top-left").css({
+						"left": (-1)*(1000-0.5*screen.width)+"px",
+						"top": (-1)*(600-0.5*screen.height)+"px"
+						});
+						$("div.top-right").css({
+							"right": (-1)*(1000-0.5*screen.width)+"px",
+							"top": (-1)*(600-0.5*screen.height)+"px"
+						});
+						$("div.bottom-left").css({
+							"left": (-1)*(1000-0.5*screen.width)+"px",
+							"bottom": (-1)*(600-0.5*screen.height)+"px"
+						});
+						$("div.bottom-right").css({
+							"right": (-1)*(1000-0.5*screen.width)+"px",
+							"bottom": (-1)*(600-0.5*screen.height)+"px"
+						});
+					}*/
+				}
+				//______плавний скролінг по меню
+				$("div.dishes_menu").on("click","a",function(e){
+					e.preventDefault();
+					var my_id=$(this).attr("href");
+					var top=$(my_id).offset().top;
+					$("body").animate({
+						scrollTop: top
+					},2000)
+				})
+				//____відкриваємо бургур меню
+				$("div.burger_menu").on("click","button.open_menu",function(){
+					$("div.vertical_menu").css({
+						"display": "block",
+						"opacity": "1",
+						"background": "rgb(206,163,82)",
+						"z-index": "10"
+					});
+					$("div.burger_menu").css({
+						"opacity": "0"
+					});
+					$("div.dishes_menu").css({
+						"opacity": "0"
+					});
+				})
+				$("div.vertical_menu").on("click", "button.close_menu", function(){
+					$("div.vertical_menu").css({
+						"opacity": "0"
+					});
+					$("div.burger_menu").css({
+						"opacity": "1"
+					});
+					$("div.dishes_menu").css({
+						"opacity": "1"
+					});
+				})
+				$("div.vertical_menu").on("click","a",function(e){
+					$("div.vertical_menu").css({
+						"opacity": "0"
+					});
+					$("div.burger_menu").css({
+						"opacity": "1"
+					});
+					$("div.dishes_menu").css({
+						"opacity": "1"
+					});
+					e.preventDefault();
+					var my_id=$(this).attr("href");
+					var top=$(my_id).offset().top;
+					$("body").animate({
+						scrollTop: top
+					},2000)
+				})
+			});
+		</script>
+		<style type="text/css">
+				body {
+					background: rgb(206,163,82);
+					margin: 0;
+					padding: 0;
+					font-family: 'Roboto', sans-serif;
+				}
+				div.logo_start {
+					position: fixed;
+					left: 48%;
+					top: 47%;
+				}
+				div.waves {
+					opacity: 0;
+					position: relative;
+				}
+				img.logo {
+					width: 180px;
+					height: 112px;
+					position: fixed;
+					left: calc(50% - 90px);
+					top: calc(50% - 56px);
+					z-index: -1;
+					display: none;
+				}
+				div.burger_menu button.open_menu {
+					position: fixed;
+					text-align: center;
+					right: 0;
+					top: 0;
+					width: 60px;
+					height: 60px;
+					background-color: #fff;
+					z-index: 1000;
+					border: none;
+				}
+				.open_menu span {
+					display: inline-block;
+					width: 30px;
+					height: 3px;
+					background: #395442;
+					position: relative;
+				}
+				.open_menu span:before, .open_menu span:after {
+					content: " ";
+					display: block;
+					position: absolute;
+					left: 0;
+					width: 100%;
+					height: 3px;
+					background: #395442;
+				}
+				.open_menu span:before {
+					top: -6px;
+				}
+				.open_menu span:after {
+					bottom: -6px;
+				}
+				div.vertical_menu {
+					position: fixed;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					width: 100%;
+					height: 100%;
+					font-weight: 800;
+					text-align: center;
+					background: #cea353
+					//display: none;
+					//z-index: 99;
+					opacity: 0;
+					}
+				div.vertical_menu ul {
+					width: 100%;
+					margin: 0;
+					position: relative;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+				ul.perelik {
+					list-style: none;
+				}	
+				div.vertical_menu ul li {
+					width: 100%;
+					text-align: center;
+				}
+				div.vertical_menu ul li a {
+					text-decoration: none;
+					font-family: 'Alegreya Sans', sans-serif;
+					color: #fff;
+					text-transform: uppercase;
+					font-size: 1.8em;
+					font-weight: 800;
+					display: inline-block;
+					text-align: center;
+					padding: 10px 20px;
+					position: relative;
+				}
+				
+				
+				div.vertical_menu ul li a:before {
+					left: -16px;
+					border-top: 6px solid transparent;
+					border-bottom: 6px solid transparent;
+					border-left: 8px solid #f2e3b4;
+				}
+				div.vertical_menu ul li a:after {
+					right: -16px;
+					border-top: 6px solid transparent;
+					border-bottom: 6px solid transparent;
+					border-right: 8px solid #f2e3b4;
+				}
+				div.vertical_menu ul li a:before, div.vertical_menu ul li a:after {
+					content: " ";
+					position: absolute;
+					top: 50%;
+					margin-top: -7px;
+					width: 0;
+					height: 0;
+					opacity: 0;
+				}
+				div.vertical_menu ul li a:hover:after {
+					right: 0;
+					opacity: 1;
+					transition-duration: 0.5s;
+				}
+				div.vertical_menu ul li a:hover:before {
+					left: 0;
+					opacity: 1;
+					transition-duration: 0.5s;
+				}
+				button.close_menu {
+					position: relative;
+					height: 50px;
+					width: 50px;
+					font-size: 12px;
+					text-align: center;
+					border: 0px;
+					background: #cea353;
+					margin-bottom: 20px;
+				}
+				button.close_menu span {
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 50%;
+					margin-left: -15px;
+					height: 40px;
+					width: 30px;
+				}
+				button.close_menu span:before, button.close_menu span:after {
+					content: " ";
+					width: 30px;
+					height: 2px;
+					position: absolute;
+					top: 23px;
+					left: 0;
+					background: #fff;
+				}
+				button.close_menu span:before {
+					transform: rotate(-45deg);
+				}
+				button.close_menu span:after {
+					transform: rotate(45deg);
+				}
+				button.close_menu span:hover:before, button.close_menu span:hover:after {
+					background: #395442;
+				}
+				div.top-left {
+					position: fixed;
+					//left: -420px;
+					//top: -270px;
+					left: -1000px;
+					top: -600px;
+					z-index: 100;
+				}
+				div.top-right {
+					position: fixed;
+					//right: -400px;
+					//top: -310px;
+					right: -1000px;
+					top: -600px;
+					z-index: 100;
+				}
+				div.bottom-left {
+					position: fixed;
+					//left: -410px;
+					//bottom: -330px;
+					left: -1000px;
+					bottom: -600px;
+					z-index: 100;
+				}
+				div.bottom-right {
+					position: fixed;
+					//right: -500px;
+					//bottom: -260px;
+					right: -1000px;
+					bottom: -600px;
+					z-index: 100;
+				}
+				h1, h2, h3 {
+					font-family: 'Alegreya Sans', sans-serif;
+				}
+				h1 {
+					font-size: 3.5em;
+					color: #395442;
+					margin-top: 150px;
+					margin-left: 350px;
+				}
+				h1 span {
+					font-size: 0.5em;
+				}
+				h3 {
+					color: #ac9377;
+					font-size: 1.5em;
+					margin: auto 250px;
+					margin-left: 400px;
+				}
+				div.about {
+					margin-top: 60%;
+					background: #efece2;
+					overflow: hidden;
+				}
+				div.about div.left {
+					background: #e1e3d2;
+					float: left;
+					width: 50%;
+					position: relative;
+				}
+				div.about div.right {
+					float: right;
+					width: 50%;							
+				}
+				div.about p {
+					color: #ac9377;
+					margin: 15px 250px;
+					margin-left: 150px;
+					font-size: 0.9em;
+				}
+				div.about a {
+					color: #395442;
+					text-decoration: none;
+					font-weight: bold;
+					font-size: 0.8em;
+				}
+				div.about h2 {
+					position: absolute;
+					top: 20%;
+					left: 0;
+					//float: left;
+					transform: rotate(-90deg);
+					font-size: 1.3em;
+					font-family: 'Alegreya Sans', sans-serif;
+					margin: 50% 50px 50% 20px;
+					COLOR: #fff;
+				}
+				div.about h1 {
+					margin-left: 100px;
+				}
+				div.about h3 {
+					margin-left: 150px;
+					font-size: 1.6em;
+				}
+				div.about img {
+					//display: block;
+					padding: 25% 10%;
+				}
+				div.fon img {
+					width: 100%;
+				}
+				div.dishes {
+					background: rgb(238,221,163);
+					margin-top: -10%;
+					position: relative;
+					padding: 350px 21%;
+				}
+				h6#vegetalian {
+					padding-bottom: 50px;
+				}
+				div.menu h2 {
+					color: white;
+					font-family: 'Alegreya Sans', sans-serif;
+					font-size: 11em;
+					font-weight: 800;
+					position: absolute;
+					margin-top: 0;
+					top: 100px;
+					left: 21%;
+					letter-spacing: 15px;
+				}
+				div.menu div.pic1 {
+					position: absolute;
+					top: -100px;
+					right: 0;
+					width: 50%;
+					box-shadow: -10px 10px 0 rgb(154,128,99);
+				}
+				div.menu div.pic1 img {
+					width: 100%;
+				}
+				div.menu div.pic2 {
+					position: absolute;
+					top: -30px;
+					left: 35%;
+					width: 25%;
+					box-shadow: -10px 10px 0 rgb(45,67,50);
+				}
+				div.menu div.pic2 img {
+					width: 100%;
+				}
+				div.dishes h6, div.l_idea p {
+					font-size: 0.8em;
+					font-weight: lighter;
+					line-height: 20px;
+				}
+				div.dishes h3 {
+					font-size: 3.5em;
+					color: #395442;
+					margin-left: 0;
+					font-family: 'Alegreya Sans', sans-serif;
+					margin-top: 100px;
+					margin-bottom: 20px;
+				}
+				div.dishes h4 {
+					font-size: 2em;
+					color: #395442;
+					font-family: 'Alegreya Sans', sans-serif;
+					font-weight: 400;
+					margin: 0 auto;
+				}
+				div.dishes ul {
+					list-style: none;
+					font-weight: bold;
+					color: #395442;
+				}
+				div.dishes li {
+					margin-bottom: 20px;
+				}
+				div.dishes li p {
+					font-weight: lighter;
+					margin-top: 3px;
+					font-size: 0.9em;
+				}
+				div.dishes div {
+					display: inline-block;
+					width: 49%;
+				}
+				div.dishes div.dishes_menu {
+					width: 49%;
+					background: white;
+					position: absolute;
+					left: 0;
+					z-index: 999;
+					overflow: hidden;
+				}
+				div.dishes div.dishes_menu a {
+					text-decoration: none;
+					color: #395442;
+					font-size: 1.5em;
+					font-family: 'Alegreya Sans', sans-serif;
+					font-weight: 200;
+					display: inline-block;
+					padding: 10px 0;
+					margin: auto 15px;
+					position: relative;
+				}
+				div.dishes div.dishes_menu a:first-child {
+					margin-left: 20%;
+				}
+				div.dishes div.dishes_menu a:after {
+					content:  " ";
+					display: block;
+					transform: rotate(-45deg);
+					width: 10px;
+					height: 10px;
+					background: #395442;
+					position: absolute;
+					left: 40%;
+					bottom: -12px;
+					transition-duration: 0.5s;
+				}
+				div.dishes div.dishes_menu a:hover:after {
+					bottom: -5px;
+				}
+				div.l_idea {
+					background: white;
+					position: relative;
+					padding: 350px 21%;
+					margin-top: -350px;
+				}
+				div.l_idea div.pic1 {
+					position: absolute;
+					top: -400px;
+					right: 0;
+					width: 50%;
+					box-shadow: -10px 10px 0 rgb(238,221,163);
+				}
+				div.l_idea div.pic1 img {
+					width: 100%;
+				}
+				div.l_idea div.pic2 {
+					position: absolute;
+					top: -800px;
+					right: 5%;
+					width: 28%;
+					box-shadow: -10px 10px 0 rgb(45,67,50);
+				}
+				div.l_idea div.pic2 img {
+					width: 100%;
+				}
+				div.l_idea h2 {
+					color: rgb(154,128,99);
+					font-family: 'Alegreya Sans', sans-serif;
+					font-size: 11em;
+					font-weight: 800;
+					position: absolute;
+					margin-top: 0;
+					top: 100px;
+					left: 19%;
+					letter-spacing: 15px;
+				}
+				div.l_idea p {
+					width: 50%;
+				}
+				div.l_idea a.button {
+					display: inline-block;
+					text-decoration: none;
+					padding: 10px;
+					color: rgb(45,67,50);
+					border: 2px solid rgb(45,67,50);
+					font-weight: bold;
+					position: relative;
+					width: 202px;
+					overflow: hidden;
+				}
+				div.l_idea a.button:after {
+					content: "Visitez notre page Facebook";
+					display: inline-block;
+					padding: 10px;
+					color: #f2e3b4;
+					background: rgb(45,67,50);
+					font-weight: bold;
+					font-weight: bold;
+					position: absolute;
+					left: -224px;
+					top: 0;
+					width: 204px;
+					transition-duration: .5s;
+				}
+				div.l_idea a.button:hover:after {
+					left: 0;
+				}
+				
+				div.l_idea h3 {
+					color: black;
+					margin-left: 0; 
+					font-size: 1.6em;
+					margin-top: 40px;
+				}
+				div.l_idea div.contacts {
+					float: left;
+					width: 27%;
+				}
+				div.l_idea div.contacts h4 {
+					color: rgb(154,128,99);
+				}
+				div.l_idea div.contacts p {
+					color: black;
+				}
+				div.l_idea div.contacts a {
+					color: rgb(45,67,50);
+					text-decoration: none;
+					font-size: 0.8em;
+				}
+				div.l_idea div.contacts a:hover {
+					color: rgb(154,128,99);
+				}
+		</style>
+		<script>
+				
+			</script>
+	</head>
+	<body>
+			<div class="logo_start">
+				<div class="waves">
+					<img src="waves-coffee.svg">
+					<img src="waves-coffee.svg">
+					<img src="waves-coffee.svg">
+				</div>
+				<img src="coffee-loading.svg">
+			</div>
+			<div class="burger_menu">
+				<button class="open_menu">
+					<span></span>
+				</button>
+			</div>
+			<div class="vertical_menu">
+				<ul class="perelik">
+					<li>
+						<button class="close_menu">
+							<span></span>
+						</button>
+					</li>
+					<li><a href="#formule">La Formule</a></li>
+					<li><a href="#menu">Menu</a></li>
+					<li><a href="#lidee">Lidee</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li></li>
+				</ul>
+			</div>
+			<img src="logo.svg" class="logo">
+			<div class="top-left">
+				<img src="flowers-topleft.png">
+			</div>
+			<div class="top-right">
+				<img src="flowers-topright.png">
+			</div>
+			<div class="bottom-left">
+				<img src="flowers-bottomleft.png">
+			</div>
+			<div class="bottom-right">
+				<img src="flowers-bottomright.png">
+			</div>
+			<div class="about" id="formule">
+				<div class="left">
+					<h2>LA FORMULE</h2>
+					<h1>CAFÉ<br>
+							FRIDA <span>C’EST...</span>
+					</h1>
+					<h3>La crème du café, de la lumière à n’en plus finir et le Fleuve comme voisin de table. Bienvenue au Frida.
+					</h3>
+					<p>Un menu 100% végétalien (le premier en Mauricie) pour l’environnement, l’éthique et la différence. Des produits locaux, de saison et cuisinés sur place. (<a href="#">www.cowspiracy.com</a>)
+					</p>
+					<p>
+					Un café 3ième vague éco-responsable et plus qu’équitable au niveau humain. Une relation entre le grain cueilli et votre tasse qui passe par la proximité avec les producteurs de café au soucis d’une parfaite torréfaction de ces lots en provenance d’orgines uniques et d’une infusion faite avec précision par nos baristas. (<a href="#">www.philsebastian.com</a>)
+					</p>
+					<p>
+					Des produits artisanaux, rien d’usiné, de votre cocktail jusqu’à votre miche de pain.(<a href="#"> www.34oztonicmaison.com</a>)</p>
+				</div>
+				<div class="right">
+					<img src="toast-gif.gif">
+				</div>
+			</div>
+			<div class="menu" >
+					<div class="fon">
+						<img src="ambiance-6.jpg">
+					</div>
+					<div class="dishes">
+							<div class="pic1">
+								<img src="latte.jpg">
+							</div>
+							<div class="pic2">
+								<img src="dhal-patel.jpg">
+							</div>
+							<h2 id="menu">MENU</h2>
+							<h6 id="vegetalian">Notre menu 100% végétalien, vous propose un best of de la<br> bonne bouffe. Sans prétention. Sauf peut-être celle de faire un<br> sérieux coup de charme à vos papilles.</h6>
+							<div class="dishes_menu">
+								<a href="#toasts">TOASTS</a>
+								<a href="#cafes">CAFÉS</a>
+								<a href="#brunch">BRUNCH</a>
+								<a href="#bar">BAR</a>
+								<a href="#menu">MENU</a>
+							</div>
+							<div class="one">
+									<h3 id="toasts">TOASTS</h3>
+									<h4>SUCRÉ</h4>
+										<ul>
+											<li>NUTELLA TOURNESOL</li>
+											<li>BEURRE D’ÉRABLE</li>
+											<li>TAHINI, ET DATTES</li>
+										</ul>	
+									<h3 id="cafes">CAFÉS</h3>
+										<ul>
+											<li>FILTRE</li>
+											<li>ESPRESSO</li>
+											 <p>Court, Allongé, Americano</p></li>
+											<li>MACCHIATO</li>
+											<li>CAPPUCCINO</li>
+											<li>LATTE</li>
+											<li>MOCHA</li>
+											<li>POUR OVER</li>
+											<li>COLD BREW</li>
+											<li>NITRO COLD BREW</li>
+										</ul>	
+									<h3 id="menu">MENU</h3>
+									<h6>Disponible à partir de 11h, weekends à partir de 17h</h6>
+									<ul>
+											<li>KALE CÉSAR
+												<p>Kale & Épinards, Sauce Césare, Croutons, Bacon, Câperons, Parmesan de Cajou</p></li>
+											<li>RAMEN BOWL
+												<p>Nouilles Ramen, Bouillon Miso & Curry Rouge, Bok Choy, Chou Nappa, Maïs, Shitakes, Coriandre, Basilic</p></li>
+											<li>DHAL PATEL
+												<p>Mijoté de Lentilles, Oignons Frits, Crème Coco Épicée, Coriandre, Chou-fleur frit, Pain Naan Maison</p></li>
+											<li>PAS-POULET BUFFALO
+												<p>Poulet Frit Buffalo, Frites, Salade de Chou, Sauce Ranch</p></li>
+											<li>BURGER FREECHICKEN
+												<p>Croquette de Poulet Poivrée, Bacon, Mayonnaise Ranch, Bun au Romarin, Laitue, Tomate + Frites et Salade de Chou</p></li>
+											<li>TEMPEH À LA JERK
+												<p>Tempeh Mariné a la Jerk, Bananes Plantain Frites, Chutney d’Ananas Grillés, Sauce Épicée, Salade du Moment</p></li>
+											<li>ASSIETTE DE FALAFELS
+												<p>Falafels, Cachounnaise, Salade du Moment, Fruits & Marinades, Pain Naan Maison</p></li>
+											<li>PICKLES FRITS
+												<p>Cornichons Panés, Cachounnaise</p></li>
+											<li>EMPENADAS
+												<p>Trois Chaussons Farcis aux Légumes Épicés, Sauce Ranch</p></li>
+											<li>PATATAS BRAVAS
+												<p>Pommes de Terre, Sauce Tomate Relevée, Cachounnaise</p></li>
+									</ul>
+							</div>
+							<div class="two">							
+									<h4>SALÉ</h4>
+									<ul>
+										<li>HUMMUS</li>
+										<li>AVOCAT</li>
+										<li>VÉGÉ PATÉ</li>
+									</ul>
+									<h3 id="brunch">BRUNCH</h3>
+									<h6>Disponible les weekends de 8h à 15h!</h6>
+									<ul>
+										<li>GAUFRE & PAS-POULET FRIT
+											<p>Gaufre maison cuite à l’ordre, pas-poulet pop-corn, avocat, sirop d’érable au piment, verdure & coriandre</p></li>
+										<li>SAUCISSE MOCKMUFFIN
+											<p>Muffin anglais maison, saucisse aux pommes, œufs de tofu, végannaise épicée, fauxmage, laitue & tomate. Servie avec patates & salade</p></li>
+										<li>PAIN DORÉ BONOBO
+											<p>Pain aux bananes & lavande, crème fouettée de coco, bananes caramélisées, fruits</p></li>
+										<li>CRÊPES PAUL SARRAZIN
+											<p>Garniture de nutella maison au tournesol, fruits, sirop d’érable</p></li>
+										<li>LA JOBBEUSE
+											<p>Bines maison, saucisse, patates, moutarde de maux, toast & confiture, fruits & verdure</p></li>
+										<li>GAUFRE TAHINI & DATTES
+											<p>Gaufre maison cuite à l’ordre, sirop d’érable, fruits</p></li>
+										<li>TOSTADAS FRIDA
+											<p>Tortillas croquants de maïs, frijoles, salsa verde, guacamole, choux fleurs frits, cachounnaise, fauxmage, verdure & coriandre</p></li>
+										<li>BOL DE CHIA
+											<p>Lait de coco & cachou, chia noir, garniture de granola maison & fruits, sirop d’érable</p></li>
+										<li>JUS D'ORANGE
+											<p>Frais pressé par Ian</p></li>
+										<li>MIMOSA</li>
+										<li>BLOODY FRIDA</li>
+									</ul>	
+									<h3 id="bar">BAR</h3>
+									<ul>
+										<li>BIÈRES DE LA MICROBRASSERIE FARNHAM</li>
+										<li>COCKTAILS MAISONS</li>
+										<li>VINS D'IMPORTATION PRIVÉE</li>
+										<br><br>
+									</ul>
+							</div>		
+					</div>
+			</div>
+			<div class="idea" >
+				<div class="fon">
+					<img src="ambiance-7.jpg">
+				</div>
+					<div class="l_idea" id="lidee" >
+						<div class="pic1">
+								<img src="burger-free-chicken.jpg">
+						</div>
+						<div class="pic2">
+							<img src="img-verti-2.jpg">
+						</div>
+						<h2>L'IDÉE</h2>
+						<p>L’idée est née de la complicité entre deux Gab et un Emmanuel. De leur passion commune pour l’art et la bouffe. Le beau et le bon. Ensemble, ils ont décidé de transformer le 15, rue des Forges et d’y transporter l’univers éclectique et organique de la grande Frida Khalo.</p>
+						<p>Au coeur de cette histoire, le café. Il s’agissait de trouver LE café parfait, qui serait au top côté saveur, fraîcheur et équité humaine. Après plusieurs recherches, nos caféïnomanes l’ont trouvé auprès de Phil & Sebastian, fournisseur canadien qui mise sur une approche très humaine et qui livre un produit pur et extrêmement frais, d’un goût riche incomparable.</p>
+						<p>Pour ce qui est du concept de toast, il est né d’un désir de retourner à une cuisine dénudée, sans artifice. Une cuisine accessible. N’a-t-on pas toujours le goût d’une bonne toast? Pour toutes ces fois-là, il y a le Café Frida.</p>
+						<a href="#" class="button">
+							Visitez notre page Facebook
+						</a>
+						<br>
+						<h3 id="contact">Parce qu’on aime vous jaser ça :<h4>
+						<div class="contacts">
+							<h4>GABRIELLE <br>COSSETTE</h4>
+							<p>propriétaire, féministe <br>& amie des animaux</p>
+							<a href="#">g.cossette@cafefrida.ca</a>
+						</div>
+						<div class="contacts">
+							<h4>EMMANUEL <br>SALIB</h4>
+							<p>propriétaire<br> & caféïnomane</p>
+							<a href="#">e.salib@cafefrida.ca</a>
+						</div>
+						<div class="contacts">
+							<h4>GABRIEL <br>LEFEBVRE</h4>
+							<p>directeur <br>& curieux mélomane</p>
+							<a href="#">g.lefebvre@cafefrida.ca</a>
+						</div>
+					</div>
+			</div>
+			<div class="footer">
+				
+			</div>
+	</body>
+</html>	
